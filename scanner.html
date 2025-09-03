@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scanner QR Code</title>
+  <style>
+    #scanner {
+      width: 100%;
+      max-width: 400px;
+      margin: 20px auto;
+    }
+    video {
+      width: 100%;
+      border: 2px solid #007bff;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- <h2>📷 Scanner un QR Code</h2> -->
+  <div id="scanner"></div>
+  <p id="result"></p>
+  <button onclick="window.location.href='dashboard.html'">⬅ Retour Dashboard</button>
+
+  <!-- Librairie de scan -->
+  <script src="https://unpkg.com/html5-qrcode"></script>
+  <script>
+    const scannerDiv = document.getElementById("scanner");
+    const html5QrCode = new Html5Qrcode("scanner");
+
+    html5QrCode.start(
+      { facingMode: "environment" },
+      { fps: 10, qrbox: 250 },
+      (decodedText) => {
+        document.getElementById("result").innerText = "✅ QR Code détecté : " + decodedText;
+        html5QrCode.stop();
+      },
+      (errorMessage) => {
+        console.log("Erreur scan:", errorMessage);
+      }
+    ).catch(err => {
+      console.error("Impossible d'accéder à la caméra", err);
+    });
+  </script>
+</body>
+</html>

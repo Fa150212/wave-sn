@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion - Wave Simplifié</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Connexion Wave</h2>
+    <form id="login-form">
+      <label>Nom complet :</label>
+      <input type="text" id="fullname" required>
+
+      <label>Numéro de téléphone :</label>
+      <input type="tel" id="phone" required placeholder="77 123 45 67">
+
+      <button type="submit">Se connecter</button>
+    </form>
+    <p id="login-error" class="error"></p>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Wave Simplifié</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .eye { cursor: pointer; margin-left: 10px; }
+    .profile { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+    .profile img { width: 50px; height: 50px; border-radius: 50%; }
+  </style>
+</head>
+<body>
+  <nav class="navar">
+    <div class="logo">
+      <img src="image/nav-logo.png" alt="">
+    </div>
+    <div class="menu">
+      <div class="profil profile">
+        <img id="user-photo" src="">
+        <span id="user-display"></span>
+      </div>
+      <div class="decon">
+        <button id="btn-logout">Déconnexion</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="row">
+      <p class="para-sold">
+        Solde actuel : <span id="balance"></span> FCFA <span class="eye" id="toggle-eye"><i class="fa-solid fa-eye"></i></span>
+      </p>
+      <div class="row-scaner">
+        <div id="qrcode"></div>
+        <button id="btn-scan">📷 Scanner un QR Code</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
