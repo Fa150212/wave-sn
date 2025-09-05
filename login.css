@@ -1,48 +1,20 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f2f5f9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:system-ui, Arial, sans-serif; background:#f5f8ff;
+  display:flex; min-height:100vh; align-items:center; justify-content:center;
 }
-
-.login-container {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-  width: 300px;
-  text-align: center;
+.login-container{
+  width:100%; max-width:380px; background:#fff; padding:24px 20px;
+  border-radius:16px; box-shadow:0 10px 30px rgba(0,40,120,.08);
 }
-
-h1 {
-  margin-bottom: 20px;
-  color: #0077ff;
+h2{margin:0 0 16px; color:#0b57d0}
+label{display:block; margin:12px 0 6px; color:#334}
+input{
+  width:100%; padding:12px 14px; border:1px solid #d9e1ee; border-radius:10px;
 }
-
-input, button {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+button{
+  width:100%; margin-top:16px; padding:12px; border:0; border-radius:10px;
+  background:#0b57d0; color:#fff; font-weight:600; cursor:pointer;
 }
-
-button {
-  background: #0077ff;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #005ecb;
-}
-
-#login-error {
-  color: red;
-  margin-top: 10px;
-}
+button:hover{filter:brightness(.95)}
+.error{color:#d22; margin-top:10px}

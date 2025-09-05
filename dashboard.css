@@ -1,73 +1,189 @@
-*{
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:system-ui, Arial, sans-serif;
+    background:#f6f9ff;
+    color:#172b4d
 }
-body {
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
-    box-sizing: border-box;
-    text-align: center;
+.topbar{
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 10px 16px;
+  background: #0b57d0; 
+  color: #fff;
 }
-.navar{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-    height: 60px;
-    padding: 10px 40px;
-    border-bottom: 1px solid#ff3b3b;
+.brand{
+    display: flex; 
+    align-items: center; 
+    gap: 10px
 }
-.logo{
-    width: 30%;
-    align-items: start;
-
+.brand img{
+    height: 36px
 }
-.logo img{
-    height: 35px;
+.brand .gear{
+    opacity: .9
 }
-.menu{
-    display: flex;
-    justify-content: end;
-    gap: 20px;
-    align-items: center;
-    width: 60%;
+.right{
+    display: flex; 
+    align-items: center; 
+    gap: 12px
 }
-.profil{
-    display: flex;
-    align-items: center;
+.profile{
+    display: flex; 
+    align-items: center; 
+    gap: 10px 
 }
-#user-photo{
-    width: 40px;
-    height: 40px;
-    border-radius: 50px;
+.profile img{
+    width: 42px; 
+    height: 42px;  
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2px solid #fff3
 }
-button {
-  padding: 10px 20px;
-  background: #ff3b3b;
-  color: white;
-  border: none;
-  border-radius: 6px;
+.who{
+    display: flex; 
+    flex-direction: column; 
+    line-height: 1.1
+}
+#btn-logout{
+  background: #ff4d4f; 
+  border: 0; 
+  color:#fff; 
+  padding: 8px 12px; 
+  border-radius: 10px; 
   cursor: pointer;
 }
+#btn-logout:hover{
+    filter: brightness(.95)
+}
+.container{
+    max-width: 1000px; 
+    margin: 18px auto; 
+    padding: 0 12px}
 
-button:hover {
-  background: #d63030;
+.balance-card{
+  background: #fff; 
+  border-radius: 16px; 
+  box-shadow: 0 8px 26px rgba(0, 80, 180, .08);
+  padding: 16px; 
+  margin-bottom: 16px;
 }
-main{
-    padding: 40px 0px;
+.balance-line{
+    display: flex; 
+    align-items: center; 
+    gap: 10px
+}
+.balance-line strong{
+    font-size: 1.4rem
+}
+.icon-btn{
+  border: 0;
+   background:#eef4ff; 
+   color: #0b57d0; 
+   padding: 8px 10px; 
+   border-radius: 10px; 
+   cursor: pointer;
+}
+.qr-line{
+    display: inline-block; 
+    align-items: center; 
+    margin-top: 12px
+}
+#qrcode{
+    width: 150px; 
+    height: 150px; 
+    border: 1px 
+    dashed #d9e1ee; 
+    border-radius: 12px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background: #fafcff
+}
+.secondary{
+  background:#fff; 
+  border: 1px solid #d9e1ee; 
+  color:#0b57d0; 
+  padding: 0px 15px; 
+  border-radius: 0px; 
+  cursor: pointer;
+  width: 150px; 
+}
+.secondary:hover{
+    background:#f4f8ff
+}
+.actions-grid{
+  display: grid; 
+  grid-template-columns: repeat(3,1fr); 
+  gap: 12px; 
+  margin-bottom: 16px;
+}
+.card{
+  background:#fff; 
+  border-radius: 16px; 
+  box-shadow: 0 8px 26px rgba(0, 80, 180, .08);
+  padding: 16px;
+}
+.card h3{
+    margin:0; 
+    color:#0b57d0; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px
+}
+.card-content{
+    display: none; 
+    margin-top: 12px
+}
+.card.active .card-content{
+    display: block
 }
 
-.para-sold{
-    margin-bottom: 20px;
+.card label{
+    display: block; 
+    margin-top: 6px
 }
-.row-scaner{
-    display: inline-block;
-    margin: auto;
+.card input{
+  width: 100%; 
+  padding: 10px; 
+  border: 1px solid #d9e1ee; 
+  border-radius: 10px; 
+  margin: 6px 0 10px;
 }
-#btn-scan{
-     width: 150px;
-     border-radius: 0px;
-     background-color: black;
-     color: #f9f9f9;
+.card button{
+  background:#0b57d0; 
+  color: #fff; 
+  border: 0; 
+  padding: 10px 12px; 
+  border-radius: 10px; 
+  cursor: pointer;
+}
+.card button:hover{
+    filter: brightness(.95)
+}
+.msg{
+    min-height: 18px; 
+    color:#555; 
+    margin-top: 6px
+}
+
+.history table{
+    width: 100%; 
+    border-collapse: collapse
+}
+.history th, .history td{
+    padding: 10px; 
+    border-bottom: 1px solid #eef2fa; 
+    text-align: left
+}
+.history th{
+    background: #f5f8ff; 
+    color: #375
+}
+@media (max-width:900px){
+    .actions-grid{
+        grid-template-columns:1fr
+    }
 }

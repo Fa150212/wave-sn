@@ -1,4 +1,4 @@
-
+// Seed d'utilisateurs (si vide)
 if (!localStorage.getItem("users")) {
   const defaultUsers = [
     { fullname: "Fatou Gueye", phone: "771234567", code: "1234", balance: 0, photo: "image/fatou.jpg" },
@@ -7,8 +7,8 @@ if (!localStorage.getItem("users")) {
   localStorage.setItem("users", JSON.stringify(defaultUsers));
 }
 
-// Vérification login
-document.getElementById("login-form").addEventListener("submit", e => {
+// Connexion step 1 (nom + téléphone)
+document.getElementById("login-form").addEventListener("submit", (e) => {
   e.preventDefault();
   const fullname = document.getElementById("fullname").value.trim();
   const phone = document.getElementById("phone").value.trim();

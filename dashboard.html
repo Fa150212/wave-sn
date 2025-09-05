@@ -1,48 +1,106 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard - Wave Simplifié</title>
-  <link rel="stylesheet" href="dashboard.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    .eye { cursor: pointer; margin-left: 10px; }
-    .profile { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
-    .profile img { width: 50px; height: 50px; border-radius: 50%; }
-  </style>
+  <link rel="stylesheet" href="dashboard.css"/>
+  <!-- Font Awesome (icônes)-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
-  <nav class="navar">
-    <div class="logo">
-      <img src="image/nav-logo.png" alt="">
+  <nav class="topbar">
+    <div class="brand">
+        <img src="image/nav-logo.png" alt="Wave" />
+        <span class="gear" title="Paramètres">
+           <i class="fa-solid fa-gear"></i>
+        </span>
     </div>
-    <div class="menu">
-      <div class="profil profile">
-        <img id="user-photo" src="">
-        <span id="user-display"></span>
+    <div class="right">
+      <div class="profile">
+        <img id="user-photo" src="" alt="Profil"/>
+        <div class="who">
+            <span id="user-display"></span>
+            <small id="user-phone"></small>
+        </div>
       </div>
-      <div class="decon">
-        <button id="btn-logout">Déconnexion</button>
-      </div>
+      <button id="btn-logout">Déconnexion</button>
     </div>
   </nav>
 
-  <main>
-    <div class="row">
-      <p class="para-sold">
-        Solde actuel : <span id="balance"></span> FCFA <span class="eye" id="toggle-eye"><i class="fa-solid fa-eye"></i></span>
-      </p>
-      <div class="row-scaner">
-        <div id="qrcode"></div>
-        <button id="btn-scan">📷 Scanner un QR Code</button>
+  <main class="container">
+    <section class="balance-card">
+      <div class="balance-line">
+        <span>Solde :</span>
+        <strong>
+            <span id="balance"></span> FCFA
+        </strong>
+        <button class="icon-btn" id="toggle-eye" title="Afficher/Masquer">
+          <i class="fa-solid fa-eye"></i>
+        </button>
       </div>
-    </div>
+      <div class="qr-line">
+        <div id="qrcode"></div>
+        <button id="btn-scan" class="secondary">📷 Scanner un QR Code</button>
+      </div>
+    </section>
+
+    <section class="actions-grid">
+      <!-- Transfert -->
+      <div class="card">
+        <h3 class="action-title"><i class="fa-solid fa-paper-plane"></i> Transfert</h3>
+        <div class="card-content">
+          <label>Nom du destinataire</label>
+          <input type="text" id="trf-name" placeholder="Ex: Awa Diop"/>
+          <label>Montant (FCFA)</label>
+          <input type="number" id="trf-amount" min="1" placeholder="0"/>
+          <button id="btn-transfer">Envoyer</button>
+          <small>Frais: 2% du montant</small>
+          <p class="msg" id="trf-msg"></p>
+        </div>
+      </div>
+
+      <!-- Dépôt -->
+      <div class="card">
+        <h3 class="action-title"><i class="fa-solid fa-coins"></i> Dépôt</h3>
+        <div class="card-content">
+          <label>Montant (FCFA)</label>
+          <input type="number" id="dep-amount" min="1" placeholder="0"/>
+          <button id="btn-deposit">Déposer</button>
+          <p class="msg" id="dep-msg"></p>
+        </div>
+      </div>
+
+      <!-- Retrait -->
+      <div class="card">
+        <h3 class="action-title"><i class="fa-solid fa-hand-holding-dollar"></i>Retrait</h3>
+        <div class="card-content">
+          <label>Montant (FCFA)</label>
+          <input type="number" id="wdr-amount" min="1" placeholder="0"/>
+          <button id="btn-withdraw">Retirer</button>
+          <p class="msg" id="wdr-msg"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="history card">
+      <h3>Historique des opérations</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Détails</th>
+            <th>Montant</th>
+            <th>Frais</th>
+            <th>Date & Heure</th>
+          </tr>
+        </thead>
+        <tbody id="history-body"></tbody>
+      </table>
+    </section>
   </main>
 
+  <!-- Librairie QR Code -->
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
   <script src="dashboard.js"></script>
 </body>
