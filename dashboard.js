@@ -11,13 +11,13 @@ document.getElementById("user-display").textContent = user.fullname;
 document.getElementById("user-phone").textContent = "+" + user.phone;
 document.getElementById("user-photo").src = user.photo || "image/default.png";
 
-// Solde
+// Solde 
 const balanceEl = document.getElementById("balance");
 const syncUser = (newBalance) => {
   const updated = { ...user, balance: newBalance };
   localStorage.setItem("user", JSON.stringify(updated));
 
-  // mettre à jour copie dans users[]
+// mettre à jour copie dans users[] 
   const users = JSON.parse(localStorage.getItem("users")) || [];
   const idx = users.findIndex(u => u.phone === user.phone);
   if (idx !== -1) { users[idx].balance = newBalance; localStorage.setItem("users", JSON.stringify(users)); }

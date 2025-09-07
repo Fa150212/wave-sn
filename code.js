@@ -13,7 +13,7 @@ document.getElementById("code-form").addEventListener("submit", (e) => {
     // init historique si besoin
     const hKey = "history_" + logged.phone;
     if (!localStorage.getItem(hKey)) localStorage.setItem(hKey, JSON.stringify([]));
-    window.location.href = "dashboard.html";
+    window.location.href = "index.html";
   } else {
     document.getElementById("code-error").textContent = "Code incorrect ❌";
   }
